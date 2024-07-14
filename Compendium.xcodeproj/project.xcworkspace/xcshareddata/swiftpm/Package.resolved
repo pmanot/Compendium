@@ -1,0 +1,150 @@
+{
+  "originHash" : "59ca0b4887cbfb9fb72b0237dd954142b6b48f25f8599330fd74cc02a0cc4330",
+  "pins" : [
+    {
+      "identity" : "ai",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/PreternaturalAI/AI",
+      "state" : {
+        "branch" : "main",
+        "revision" : "351571156a3ba71cd4c9a5a781b64d137e56608f"
+      }
+    },
+    {
+      "identity" : "battery",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/pmanot/Battery",
+      "state" : {
+        "branch" : "main",
+        "revision" : "a1ea88cbde82da917dde15b7fd584b09af0dbb28"
+      }
+    },
+    {
+      "identity" : "browser",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/pmanot/Browser",
+      "state" : {
+        "branch" : "main",
+        "revision" : "e80e8764a30fe84118ef3b0c38c3709c1fb0ae35"
+      }
+    },
+    {
+      "identity" : "corepersistence",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/vmanot/CorePersistence.git",
+      "state" : {
+        "branch" : "main",
+        "revision" : "09c59ec90f02912bf9c87cd81b171abcc6329d87"
+      }
+    },
+    {
+      "identity" : "device",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/pmanot/device",
+      "state" : {
+        "branch" : "main",
+        "revision" : "809c193069fdc2fd7c366fdfdca9c38338ff0121"
+      }
+    },
+    {
+      "identity" : "merge",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/vmanot/Merge.git",
+      "state" : {
+        "branch" : "master",
+        "revision" : "aaebf8d392a2d2f669410cd3d23be54b0f0218d5"
+      }
+    },
+    {
+      "identity" : "networkkit",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/vmanot/NetworkKit.git",
+      "state" : {
+        "branch" : "master",
+        "revision" : "15938bff8ab4f08da809d053c21ef80e38a064c3"
+      }
+    },
+    {
+      "identity" : "swallow",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/vmanot/Swallow.git",
+      "state" : {
+        "branch" : "master",
+        "revision" : "12f5727243cc83c05c586f5562b39056060e1498"
+      }
+    },
+    {
+      "identity" : "swift-collections",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/apple/swift-collections",
+      "state" : {
+        "revision" : "3d2dc41a01f9e49d84f0a3925fb858bed64f702d",
+        "version" : "1.1.2"
+      }
+    },
+    {
+      "identity" : "swift-syntax",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/apple/swift-syntax.git",
+      "state" : {
+        "revision" : "303e5c5c36d6a558407d364878df131c3546fad8",
+        "version" : "510.0.2"
+      }
+    },
+    {
+      "identity" : "swift-system",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/apple/swift-system.git",
+      "state" : {
+        "revision" : "6a9e38e7bd22a3b8ba80bddf395623cf68f57807",
+        "version" : "1.3.1"
+      }
+    },
+    {
+      "identity" : "swiftapi",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/vmanot/SwiftAPI.git",
+      "state" : {
+        "branch" : "master",
+        "revision" : "34ad69cb6fc7f82fbdc1bcfdd3c0041f1c80b1dc"
+      }
+    },
+    {
+      "identity" : "swiftui-introspect",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/siteline/SwiftUI-Introspect",
+      "state" : {
+        "revision" : "121c146fe591b1320238d054ae35c81ffa45f45a",
+        "version" : "0.12.0"
+      }
+    },
+    {
+      "identity" : "swiftuix",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/SwiftUIX/SwiftUIX.git",
+      "state" : {
+        "branch" : "master",
+        "revision" : "299901d07be5341f74ab62ddecebdd503cc4812f"
+      }
+    },
+    {
+      "identity" : "swiftuiz",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/SwiftUIX/SwiftUIZ.git",
+      "state" : {
+        "branch" : "main",
+        "revision" : "d76a5f6a72735f3f5c7e79b92030ca2a134bb11d"
+      }
+    },
+    {
+      "identity" : "web-url",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/pmanot/web-url",
+      "state" : {
+        "branch" : "main",
+        "revision" : "01ad5a103d14839a68c55ee556513e5939008e9e"
+      }
+    }
+  ],
+  "version" : 3
+}
