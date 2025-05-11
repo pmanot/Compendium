@@ -7,6 +7,7 @@
 #if os(macOS)
 import AppKit
 #endif
+@preconcurrency
 import AVFoundation
 import CoreGraphics
 import CoreMedia

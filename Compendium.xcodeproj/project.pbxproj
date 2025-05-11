@@ -7,12 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		980FBD182DCB65C70035C48B /* Camera in Frameworks */ = {isa = PBXBuildFile; productRef = 980FBD172DCB65C70035C48B /* Camera */; };
+		980FBE892DCD82D70035C48B /* Media in Frameworks */ = {isa = PBXBuildFile; productRef = 980FBE882DCD82D70035C48B /* Media */; };
 		9813EAAF2C42DCA2003CEAF5 /* Device in Frameworks */ = {isa = PBXBuildFile; productRef = 9813EAAE2C42DCA2003CEAF5 /* Device */; };
-		9813EAB42C42E2B0003CEAF5 /* Media in Frameworks */ = {isa = PBXBuildFile; productRef = 9813EAB32C42E2B0003CEAF5 /* Media */; };
 		9813EAB62C42E7D5003CEAF5 /* LLM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9813EAB52C42E7D5003CEAF5 /* LLM.swift */; };
 		9813EABB2C4321CF003CEAF5 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9813EABA2C4321CF003CEAF5 /* SearchBar.swift */; };
 		9813EABE2C437C2C003CEAF5 /* ComponentCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9813EABD2C437C2C003CEAF5 /* ComponentCategory.swift */; };
-		9813EAC32C43840A003CEAF5 /* GoogleImageSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9813EAC22C43840A003CEAF5 /* GoogleImageSearch.swift */; };
 		9883A6DC2C42B813002B03F2 /* CompendiumApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9883A6DB2C42B813002B03F2 /* CompendiumApp.swift */; };
 		9883A6DE2C42B813002B03F2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9883A6DD2C42B813002B03F2 /* ContentView.swift */; };
 		9883A6E02C42B815002B03F2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9883A6DF2C42B815002B03F2 /* Assets.xcassets */; };
@@ -24,16 +24,14 @@
 		9883A6F52C42B85F002B03F2 /* SearchEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9883A6F22C42B85F002B03F2 /* SearchEngine.swift */; };
 		9883A6F62C42B85F002B03F2 /* URL+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9883A6F32C42B85F002B03F2 /* URL+Extensions.swift */; };
 		9883A6F92C42B8B2002B03F2 /* Browser in Frameworks */ = {isa = PBXBuildFile; productRef = 9883A6F82C42B8B2002B03F2 /* Browser */; };
-		9883A6FB2C42BB86002B03F2 /* PlaygroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9883A6FA2C42BB86002B03F2 /* PlaygroundView.swift */; };
 		98A1C9262C43DD07006A675D /* ComponentDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98A1C9252C43DD07006A675D /* ComponentDetailView.swift */; };
+		98A493392C471C6600139144 /* ItemCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98A493382C471C6600139144 /* ItemCollectionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		9813EAB52C42E7D5003CEAF5 /* LLM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLM.swift; sourceTree = "<group>"; };
 		9813EABA2C4321CF003CEAF5 /* SearchBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
-		9813EABC2C432224003CEAF5 /* Media */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Media; sourceTree = "<group>"; };
 		9813EABD2C437C2C003CEAF5 /* ComponentCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentCategory.swift; sourceTree = "<group>"; };
-		9813EAC22C43840A003CEAF5 /* GoogleImageSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleImageSearch.swift; sourceTree = "<group>"; };
 		9883A6D82C42B813002B03F2 /* Compendium.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Compendium.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9883A6DB2C42B813002B03F2 /* CompendiumApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompendiumApp.swift; sourceTree = "<group>"; };
 		9883A6DD2C42B813002B03F2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -43,8 +41,8 @@
 		9883A6F12C42B85F002B03F2 /* OpenAI+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "OpenAI+Extensions.swift"; sourceTree = "<group>"; };
 		9883A6F22C42B85F002B03F2 /* SearchEngine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchEngine.swift; sourceTree = "<group>"; };
 		9883A6F32C42B85F002B03F2 /* URL+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "URL+Extensions.swift"; sourceTree = "<group>"; };
-		9883A6FA2C42BB86002B03F2 /* PlaygroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaygroundView.swift; sourceTree = "<group>"; };
 		98A1C9252C43DD07006A675D /* ComponentDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentDetailView.swift; sourceTree = "<group>"; };
+		98A493382C471C6600139144 /* ItemCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCollectionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,9 +51,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				9813EAAF2C42DCA2003CEAF5 /* Device in Frameworks */,
+				980FBE892DCD82D70035C48B /* Media in Frameworks */,
+				980FBD182DCB65C70035C48B /* Camera in Frameworks */,
 				9883A6EC2C42B836002B03F2 /* AI in Frameworks */,
 				9883A6F02C42B836002B03F2 /* OpenAI in Frameworks */,
-				9813EAB42C42E2B0003CEAF5 /* Media in Frameworks */,
 				9883A6EE2C42B836002B03F2 /* Anthropic in Frameworks */,
 				9883A6F92C42B8B2002B03F2 /* Browser in Frameworks */,
 			);
@@ -67,20 +66,12 @@
 		9813EAB72C42E7DA003CEAF5 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				9883A6DD2C42B813002B03F2 /* ContentView.swift */,
+				98A493382C471C6600139144 /* ItemCollectionView.swift */,
 				9813EABA2C4321CF003CEAF5 /* SearchBar.swift */,
 				98A1C9252C43DD07006A675D /* ComponentDetailView.swift */,
-				9883A6DD2C42B813002B03F2 /* ContentView.swift */,
-				9883A6FA2C42BB86002B03F2 /* PlaygroundView.swift */,
 			);
 			path = Views;
-			sourceTree = "<group>";
-		};
-		9813EABF2C4383F3003CEAF5 /* Experimental */ = {
-			isa = PBXGroup;
-			children = (
-				9813EAC22C43840A003CEAF5 /* GoogleImageSearch.swift */,
-			);
-			path = Experimental;
 			sourceTree = "<group>";
 		};
 		9883A6CF2C42B813002B03F2 = {
@@ -103,10 +94,8 @@
 		9883A6DA2C42B813002B03F2 /* Compendium */ = {
 			isa = PBXGroup;
 			children = (
-				9813EABC2C432224003CEAF5 /* Media */,
 				9883A6DB2C42B813002B03F2 /* CompendiumApp.swift */,
 				98A1C9232C43DC90006A675D /* Extensions */,
-				9813EABF2C4383F3003CEAF5 /* Experimental */,
 				9813EAB72C42E7DA003CEAF5 /* Views */,
 				9813EAB52C42E7D5003CEAF5 /* LLM.swift */,
 				9813EABD2C437C2C003CEAF5 /* ComponentCategory.swift */,
@@ -164,7 +153,8 @@
 				9883A6EF2C42B836002B03F2 /* OpenAI */,
 				9883A6F82C42B8B2002B03F2 /* Browser */,
 				9813EAAE2C42DCA2003CEAF5 /* Device */,
-				9813EAB32C42E2B0003CEAF5 /* Media */,
+				980FBD172DCB65C70035C48B /* Camera */,
+				980FBE882DCD82D70035C48B /* Media */,
 			);
 			productName = Compendium;
 			productReference = 9883A6D82C42B813002B03F2 /* Compendium.app */;
@@ -178,7 +168,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1530;
-				LastUpgradeCheck = 1530;
+				LastUpgradeCheck = 1630;
 				TargetAttributes = {
 					9883A6D72C42B813002B03F2 = {
 						CreatedOnToolsVersion = 15.3;
@@ -198,6 +188,8 @@
 				9883A6EA2C42B836002B03F2 /* XCRemoteSwiftPackageReference "AI" */,
 				9883A6F72C42B8B2002B03F2 /* XCRemoteSwiftPackageReference "Browser" */,
 				9813EAAD2C42DCA2003CEAF5 /* XCRemoteSwiftPackageReference "device" */,
+				980FBD162DCB65C70035C48B /* XCRemoteSwiftPackageReference "camera" */,
+				980FBE872DCD82D70035C48B /* XCRemoteSwiftPackageReference "Media" */,
 			);
 			productRefGroup = 9883A6D92C42B813002B03F2 /* Products */;
 			projectDirPath = "";
@@ -226,10 +218,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				9813EABE2C437C2C003CEAF5 /* ComponentCategory.swift in Sources */,
+				98A493392C471C6600139144 /* ItemCollectionView.swift in Sources */,
 				9883A6F42C42B85F002B03F2 /* OpenAI+Extensions.swift in Sources */,
-				9813EAC32C43840A003CEAF5 /* GoogleImageSearch.swift in Sources */,
 				9813EAB62C42E7D5003CEAF5 /* LLM.swift in Sources */,
-				9883A6FB2C42BB86002B03F2 /* PlaygroundView.swift in Sources */,
 				98A1C9262C43DD07006A675D /* ComponentDetailView.swift in Sources */,
 				9883A6F52C42B85F002B03F2 /* SearchEngine.swift in Sources */,
 				9883A6F62C42B85F002B03F2 /* URL+Extensions.swift in Sources */,
@@ -276,7 +267,9 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 4TRFJN4JM2;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
@@ -339,7 +332,9 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 4TRFJN4JM2;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
@@ -368,8 +363,8 @@
 				CODE_SIGN_ENTITLEMENTS = Compendium/Compendium.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"Compendium/Preview Content\"";
-				DEVELOPMENT_TEAM = 4TRFJN4JM2;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -385,7 +380,7 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
@@ -408,8 +403,8 @@
 				CODE_SIGN_ENTITLEMENTS = Compendium/Compendium.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"Compendium/Preview Content\"";
-				DEVELOPMENT_TEAM = 4TRFJN4JM2;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -425,7 +420,7 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
@@ -464,6 +459,22 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		980FBD162DCB65C70035C48B /* XCRemoteSwiftPackageReference "camera" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pmanot/camera";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+		980FBE872DCD82D70035C48B /* XCRemoteSwiftPackageReference "Media" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/vmanot/Media";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 		9813EAAD2C42DCA2003CEAF5 /* XCRemoteSwiftPackageReference "device" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/pmanot/device";
@@ -491,14 +502,20 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		980FBD172DCB65C70035C48B /* Camera */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 980FBD162DCB65C70035C48B /* XCRemoteSwiftPackageReference "camera" */;
+			productName = Camera;
+		};
+		980FBE882DCD82D70035C48B /* Media */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 980FBE872DCD82D70035C48B /* XCRemoteSwiftPackageReference "Media" */;
+			productName = Media;
+		};
 		9813EAAE2C42DCA2003CEAF5 /* Device */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 9813EAAD2C42DCA2003CEAF5 /* XCRemoteSwiftPackageReference "device" */;
 			productName = Device;
-		};
-		9813EAB32C42E2B0003CEAF5 /* Media */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = Media;
 		};
 		9883A6EB2C42B836002B03F2 /* AI */ = {
 			isa = XCSwiftPackageProductDependency;

@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import SwiftUI
+import SwiftUIX
 import OpenAI
 import Browser
 
@@ -14,7 +14,6 @@ import Browser
 class SearchEngine {
     @MainActor 
     var browser = Browser(mobile: false, allowsJS: true)
-    //@MainActor private var internalBrowser = Browser(allowsJS: false)
     
     private var lastSearch: String = "github"
     private var params: [URLQueryItem] = []
@@ -31,29 +30,24 @@ class SearchEngine {
         try await browser.callJSFunction("return await fetchResults(1, 2000)", functionReturnType: .jsonString, expecting: [Browser._JSGoogleSearchResult].self).compactMap { $0.googleSearchResult(for: "") }
     }
     
-    public func imageSearchResults(for image: UIImage) async throws -> String {
-        let base64String = try image
+    public func imageSearchResults(for image: AppKitOrUIKitImage) async throws -> String {
+        let data = try image
             .data(using: .jpeg(compressionQuality: 0.8))
             .unwrap()
-            .base64EncodedString()
-        let imageURL = "data:image/jpeg;base64,\(base64String)"
+        
+        let imageURL: URL = FileManager.default.temporaryDirectory.appendingPathComponent("temporary", conformingTo: .jpeg)
+        
+        try data.write(to: imageURL, atomically: true)
         
         try await browser.loadAndWaitForNavigation(URL(string: "https://www.google.com/?olud")!)
         try await Task.sleep(for: .milliseconds(500))
-        try await browser.callJSFunction(
-            """
-            document.querySelector('[placeholder="Paste image link"]').value = encodedURL;
-            document.querySelector('[jsAction="click:HiUbje"]').click()
-            """,
-            arguments: ["encodedURL" : imageURL]
-        )
+        
+        try await browser.dropFile(url: imageURL, selector: "[placeholder='Paste image link']")
         
         try await Task.sleep(for: .milliseconds(500))
         try await browser.waitForNavigation()
         
-        return try await browser.callJSFunction("""
-        return JSON.stringify(Array.from(document.querySelector('[data-video-autoplay-mode="3"]').querySelectorAll('[href]')))
-        """, expecting: String.self)
+        return try await browser.callJSFunction(SearchEngine.reverseImageSearchResultsScript, functionReturnType: .jsonObject, expecting: String.self)
     }
     
     @MainActor
@@ -142,4 +136,48 @@ class SearchEngine {
             }
         }
     }
+    
+    struct Hit: Codable {
+        let title: String
+        let link: URL
+        let description: String?
+    }
+}
+
+extension SearchEngine {
+    static let reverseImageSearchResultsScript: String =
+    """
+    function scrapeSearchResults() {
+    const results = [];
+    const seenLinks = new Set();
+    
+    const resultNodes = document.querySelectorAll('div[data-hveid][data-ved]');
+    
+    resultNodes.forEach(container => {
+        const linkNode = container.querySelector('a[href]');
+        const titleNode = container.querySelector('h3, [role="heading"]');
+        const descriptionNode = container.querySelector('span, div');
+    
+        const title = titleNode ? titleNode.innerText.trim() : null;
+        const link = linkNode ? linkNode.href : null;
+        const description = descriptionNode ? descriptionNode.innerText.trim() : null;
+    
+        if (!title || !link || seenLinks.has(link)) {
+            return; // skip if missing title, link, or duplicate link
+        }
+    
+        seenLinks.add(link);
+    
+        results.push({
+            title,
+            link,
+            description
+        });
+    });
+    
+    return results;
+    }
+    
+    return JSON.stringify(scrapeSearchResults())
+    """
 }

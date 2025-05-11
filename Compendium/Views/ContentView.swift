@@ -2,10 +2,10 @@
 //  ContentView.swift
 //  Compendium
 //
-//  Created by Purav Manot on 13/07/24.
+//  Created by Purav Mancot on 13/07/24.
 //
 
-import SwiftUI
+import SwiftUIX
 import Media
 import Browser
 
@@ -14,89 +14,22 @@ struct ContentView: View {
     @State private var searchEngine = SearchEngine()
     @State private var engines: [SearchEngine] = [.init(), .init(), .init()]
     @State private var category: ComponentCategory = .unknown
-    @State private var screenshot: UIImage? = nil
+    @State private var screenshot: AppKitOrUIKitImage? = nil
     @State private var isDetecting: Bool = false
     @State private var query: String = ""
     @State private var component: Component?
     @State private var componentName: String?
     
     var body: some View {
-        NavigationStack {
-            CameraViewReader { camera in
+        NavigationStack {            
+            CameraViewReader { proxy in
                 VStack(spacing: 40) {
-                    HStack(alignment: .top, spacing: 20) {
-                        Circle()
-                            .fill(.blue.gradient)
-                            .phaseAnimator([true, false]) { content, phase in
-                                content
-                                    .overlay {
-                                        if isDetecting {
-                                            Circle().fill(.white.opacity(phase ? 0 : 0.75))
-                                        }
-                                    }
-                            }
-                            
-                            .frame(width: 50, height: 50)
-                            .overlay {
-                                ZStack {
-                                    Circle()
-                                        .inset(by: 1.5)
-                                        .stroke(lineWidth: 3.0)
-                                        .fill(.white)
-                                    
-                                    Circle()
-                                        .inset(by: 3.0)
-                                        .stroke(lineWidth: 0.5)
-                                        .fill(.black)
-                                    
-                                    Circle()
-                                        .stroke(lineWidth: 0.5)
-                                        .fill(.black)
-                                }
-                            }
-                        
-                        HStack {
-                            Group {
-                                Circle()
-                                    .foregroundStyle(.red.gradient)
-                                Circle()
-                                    .foregroundStyle(.yellow.gradient)
-                                Circle()
-                                    .foregroundStyle(.black.gradient)
-                            }
-                            .shadow(radius: 1)
-                            .frame(width: 12, height: 12)
-                        }
-                        .padding(.vertical, 10)
-                        
-                        Spacer()
-                    }
-                    .padding(.horizontal, 20)
+                    indicatorGroupView
                     
                     Spacer()
                     
                     Button {
-                        Task(priority: .high) {
-                            do {
-                                isDetecting = true
-                                print("searching")
-                                let image = try await camera.capturePhoto()
-                                let result = try await searchEngine.imageSearchResults(for: image)
-                                
-                                guard let componentName = await llm.identifyComponent(from: result) else { return }
-                                self.componentName = componentName
-                                let results = await searchResults(for: componentName)
-                                
-                                let links = await llm.pickLinks(from: results)
-                                print(links)
-                                
-                                self.component = Component(name: componentName, links: links)
-                                isDetecting = false
-                                
-                            } catch {
-                                print(error)
-                            }
-                        }
+                        processImage(proxy: proxy)
                     } label: {
                         Group {
                             if let name = componentName {
@@ -128,16 +61,11 @@ struct ContentView: View {
                     
                     SearchBar { query in
                         Task(priority: .high) {
-                            do {
-                                let results = await searchResults(for: query)
-                                let links = await llm.pickLinks(from: results)
-                                
-                                self.component = Component(name: query, links: links)
-                                isDetecting = false
-                                
-                            } catch {
-                                print(error)
-                            }
+                            let results = await searchResults(for: query)
+                            let links = await llm.pickLinks(from: results)
+                            
+                            self.component = Component(name: query, links: links)
+                            isDetecting = false
                         }
                     }
                 }
@@ -145,49 +73,101 @@ struct ContentView: View {
                     viewFinder
                         .background(Color.pokedex.ignoresSafeArea(.all))
                 }
-                .sheet(item: $component, onDismiss: { 
-                    component = nil
-                    componentName = nil
-                    isDetecting = false
-                }) { component in
-                    ComponentDetailView(component: component)
-                        .presentationBackground(Material.bar)
-                        .presentationCornerRadius(25)
+            }
+            .sheet(item: $component, onDismiss: {
+                component = nil
+                componentName = nil
+                isDetecting = false
+            }) { component in
+                ComponentDetailView(component: component)
+                    .presentationBackground(Material.bar)
+                    .presentationCornerRadius(25)
+            }
+            .animation(.bouncy, value: componentName)
+            .toolbar {
+                ToolbarItem(placement: .principal) {
+                    Text(llm.cost, format: .currency(code: "USD"))
+                        .fontDesign(.monospaced)
+                        .foregroundStyle(.red)
                 }
-                .animation(.bouncy, value: componentName)
-                .toolbar {
-                    ToolbarItem(placement: .principal) {
-                        Text(llm.cost, format: .currency(code: "USD"))
-                            .fontDesign(.monospaced)
-                            .foregroundStyle(.red)
-                    }
-                    /*
-                    ToolbarItem(placement: .navigation) {
-                        Button("Search", systemImage: .magnifyingglass) {
-                            Task {
-                                do {
-                                    print("searching")
-                                    let image = try await camera.capturePhoto()
-                                    let result = try await searchEngine.imageSearchResults(for: image)
-                                    print(result)
-                                } catch {
-                                    print(error)
-                                }
-                                
-                            }
-                        }
-                        .buttonStyle(.borderedProminent)
-                        .tint(.black)
-                    }*/
-                    
-                    ToolbarItem(placement: .navigationBarTrailing) {
-                        Label(category.rawValue, systemImage: category.symbolName)
-                            .labelStyle(.titleAndIcon)
-                            .tint(.yellow)
-                    }
+                /*
+                 ToolbarItem(placement: .navigation) {
+                 Button("Search", systemImage: .magnifyingglass) {
+                 Task {
+                 do {
+                 print("searching")
+                 let image = try await camera.capturePhoto()
+                 let result = try await searchEngine.imageSearchResults(for: image)
+                 print(result)
+                 } catch {
+                 print(error)
+                 }
+                 
+                 }
+                 }
+                 .buttonStyle(.borderedProminent)
+                 .tint(.black)
+                 }*/
+                
+                ToolbarItem(placement: .primaryAction) {
+                    Label(category.rawValue, systemImage: category.symbolName)
+                        .labelStyle(.titleAndIcon)
+                        .tint(.yellow)
                 }
             }
         }
+    }
+    
+    @ViewBuilder
+    var indicatorGroupView: some View {
+        HStack(alignment: .top, spacing: 20) {
+            Circle()
+                .fill(.blue.gradient)
+                .phaseAnimator([true, false]) { content, phase in
+                    content
+                        .overlay {
+                            if isDetecting {
+                                Circle().fill(.white.opacity(phase ? 0 : 0.75))
+                            }
+                        }
+                }
+            
+                .frame(width: 50, height: 50)
+                .overlay {
+                    ZStack {
+                        Circle()
+                            .inset(by: 1.5)
+                            .stroke(lineWidth: 3.0)
+                            .fill(.white)
+                        
+                        Circle()
+                            .inset(by: 3.0)
+                            .stroke(lineWidth: 0.5)
+                            .fill(.black)
+                        
+                        Circle()
+                            .stroke(lineWidth: 0.5)
+                            .fill(.black)
+                    }
+                }
+            
+            HStack {
+                Group {
+                    Circle()
+                        .foregroundStyle(.red.gradient)
+                    Circle()
+                        .foregroundStyle(.yellow.gradient)
+                    Circle()
+                        .foregroundStyle(.black.gradient)
+                }
+                .shadow(radius: 1)
+                .frame(width: 12, height: 12)
+            }
+            .padding(.vertical, 10)
+            
+            Spacer()
+        }
+        .padding(.horizontal, 20)
     }
     
     @ViewBuilder
@@ -276,6 +256,33 @@ struct ContentView: View {
             }
             
             return results
+        }
+    }
+    
+    func processImage(proxy: CameraViewProxy) {
+        Task(priority: .high) {
+            do {
+                let image: AppKitOrUIKitImage = try await proxy.capturePhoto()
+                
+                isDetecting = true
+                print("searching")
+                
+                let result = try await searchEngine.imageSearchResults(for: image)
+                
+                print("got image search results")
+                
+                guard let componentName = await llm.identifyComponent(from: result) else { return }
+                self.componentName = componentName
+                let results = await searchResults(for: componentName)
+                
+                let links = await llm.pickLinks(from: results)
+                print(links)
+                
+                self.component = Component(name: componentName, links: links)
+                isDetecting = false
+            } catch {
+                print(error)
+            }
         }
     }
 }

@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import SwiftUI
+import SwiftUIX
 import os.log
 import Browser
 import OpenAI
@@ -16,10 +16,11 @@ final class LLM {
     @ObservationIgnored
     let client = OpenAI.api
     
-    var cost: Double = 0.0
+    @ObservationIgnored
     private let logger = Logger(subsystem: "com.pmanot.compendium", category: "LLM")
+    var cost: Double = 0.0
     
-    func category(for image: UIImage) async -> ComponentCategory? {
+    func category(for image: AppKitOrUIKitImage) async -> ComponentCategory? {
         do {
             let response = try await client.response(model: .gpt_4o, system: SystemPrompt.componentCategoryIdentifier, prompt: .content([.image(image)]), history: [], parameters: .init(), totalCost: &cost, expecting: String.self)
             logger.log("Cost: $\(self.cost)")
